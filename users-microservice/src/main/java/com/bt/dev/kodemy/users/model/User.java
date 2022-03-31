@@ -5,9 +5,8 @@ import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
-
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 @Entity
@@ -82,6 +81,12 @@ public class User {
     }
 
 
+    public List<Permission> getPermissions() {
+        return this.roles.isEmpty() ? new ArrayList<>() : getRoles().stream()
+                .map(Role::getPermissions)
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+    }
 
 }
 
