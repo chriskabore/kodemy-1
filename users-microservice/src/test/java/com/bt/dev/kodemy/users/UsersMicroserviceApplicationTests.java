@@ -1,4 +1,4 @@
-package com.bt.dev.kodemy.usersmicroservice;
+package com.bt.dev.kodemy.users;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

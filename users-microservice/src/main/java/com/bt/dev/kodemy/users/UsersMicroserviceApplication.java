@@ -1,4 +1,4 @@
-package com.bt.dev.kodemy.usersmicroservice;
+package com.bt.dev.kodemy.users;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
