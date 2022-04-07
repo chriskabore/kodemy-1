@@ -26,6 +26,9 @@ public class Role {
     @Column(name = "role_name", nullable = false)
     private String roleName;
 
+    public static final long USER = 1;
+    public static final long ADMINISTRATOR = 2;
+
     public Role(String roleName){
         this.roleName = roleName;
     }

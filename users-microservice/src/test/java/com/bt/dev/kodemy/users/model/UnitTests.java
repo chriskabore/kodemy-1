@@ -1,4 +1,4 @@
-package com.bt.dev.kodemy.users;
+package com.bt.dev.kodemy.users.model;
 
 import com.bt.dev.kodemy.users.model.*;
 import org.junit.jupiter.api.Test;

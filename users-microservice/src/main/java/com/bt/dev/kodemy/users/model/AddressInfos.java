@@ -37,4 +37,11 @@ public class AddressInfos {
     @MapsId
     private User user;
 
+    public AddressInfos(String address, String address2, String city, String country, String zipCode) {
+        this.address = address;
+        this.address2 = address2;
+        this.city = city;
+        this.country = country;
+        this.zipCode = zipCode;
+    }
 }
