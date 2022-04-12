@@ -24,16 +24,13 @@ import java.util.Optional;
 @Slf4j
 public class UserService {
 
-    @Autowired
+
     private UserRepository userRepository;
 
-    @Autowired
     private ContactInfosRepository contactInfosRepository;
 
-    @Autowired
     private AddressInfosRepository addressInfosRepository;
 
-    @Autowired
     private RoleRepository roleRepository;
 
     @Value("${kodemy.security.password.salt}")
@@ -42,6 +39,18 @@ public class UserService {
     private PasswordValidator passwordValidator;
     private EmailValidator emailValidator;
     private PhoneValidator phoneValidator;
+
+    @Autowired
+    public UserService(UserRepository userRepository,ContactInfosRepository contactInfosRepository,
+                       AddressInfosRepository addressInfosRepository,RoleRepository roleRepository ) {
+        this.userRepository = userRepository;
+        this.contactInfosRepository = contactInfosRepository;
+        this.addressInfosRepository = addressInfosRepository;
+        this.roleRepository = roleRepository;
+        passwordValidator = new PasswordValidator();
+        emailValidator = new EmailValidator();
+        phoneValidator = new PhoneValidator();
+    }
 
     public UserService() {
         passwordValidator = new PasswordValidator();

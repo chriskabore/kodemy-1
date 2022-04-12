@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 public class PasswordValidator {
 
     private static final int MAX_PASSWORD_LENGTH = 60;
+    private static final int MIN_PASSWORD_LENGTH = 8;
 
     private static final String PASSWORD_REGEX = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=\\S+$).{8,}$";
 
@@ -22,6 +23,12 @@ public class PasswordValidator {
     public void checkPassword(String password) {
         if (Strings.isNullOrEmpty(password)) {
             throw new InvalidUserDataException("Password cannot be null or empty");
+        }
+
+        // check min length
+        if(password.length() < MIN_PASSWORD_LENGTH){
+            throw new InvalidUserDataException(String.format("Password is too short: min number of chars is %s",
+                    MIN_PASSWORD_LENGTH));
         }
 
         // check max length
